@@ -1,0 +1,174 @@
+ <head>
+ 	<title>Data Story II - CQ</title>
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+	   integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+	   crossorigin=""/>
+
+	<script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
+	   integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
+	   crossorigin=""></script>
+
+	<style>
+		#mapid {
+			height: 500px;
+			width: 980px;
+			margin-left:10%;
+		}
+
+
+		#article {
+			margin-left:10%;
+			margin-right:5%;
+		}
+
+
+		#container {
+			width:90%;
+			margin-left:100;
+			margin-right:100;
+			padding-top:30px;
+		}
+
+		#flourish-embed {
+			margin-left:10%;
+		}
+
+		#caption {
+			margin-left:10%;
+		}
+
+		#headercap {
+			text-align:right;
+		}
+
+
+		h1 {
+			font-family:Helvetica,Arial,sans-serif;
+			font-weight:800;
+			float:left;
+		}
+
+		h3 {
+			font-family:Helvetica,Arial,sans-serif;
+			font-weight:1em;
+			float:left;
+			clear:both;
+		}
+
+		p {
+			font-family:Helvetica,Arial,sans-serif;
+			font-weight:1em;
+			float:left;
+			line-height:1.25em;
+			word-spacing:1px;
+		}
+	</style>
+</head>
+
+
+<body>
+<script src="dist/leaflet-heat.js"></script>
+<div id="header-image"><img src="traffic_pileup.jpg"/></div>
+<div id="headercap"><caption><em>Matt Rourke / AP</em></caption></div>
+<div id="container">
+	<div id="article">
+		
+			<h1>Roosevelt Blvd. might get new speed-detection cameras, but is it the most dangerous road in Philadelphia?</h1>
+			<p>Find out which roads to avoid during your daily commute.</p>
+			<h3>By Christine Quach</h3><br>
+			<p>
+				The Pennsylvania Senate recently passed a bill approving the addition of speed-detection cameras to Roosevelt Blvd., which is known to be one of the most accident-prone roads in the Philadelphia area. Drivers going 11 miles above the speed limit will receive a fine of up to $150, as reported by <a href="https://6abc.com/traffic/speed-detection-cameras-likely-for-stretch-of-roosevelt-boulevard-/4396935/">6abc.</a><br><br>
+				The bill paves a way for <a href="http://visionzerophl.com/about">Vision Zero Action Plan</a>, a pilot program that is intended to reduce traffic deaths to zero by 2030, according to <a href="https://whyy.org/articles/roosevelt-boulevard-speed-cameras-represent-rare-bipartisan-win/">WHYY</a>. This plan involves improvements to both street design and traffic law enforcement as well as increased road safety education.<br><br>
+				Vision Zero was first adopted in Sweden in 1997; since then, traffic deaths have dropped by 30%. According to Philadelphia's Vision Zero <a href="http://visionzerophl.com/about">website</a>, the name comes from the idea of zero tolerance for traffic deaths, as is the same rule in both the airline and railroad industry. This plan's committee hopes to better educate the public and change policy in order to drastically reduce the number of accidents and deaths.
+			</p>
+	</div>
+	<div id="mapid">
+		<script>
+			var map1 = L.map('mapid').setView([40.035047000, -75.066410900], 12);
+			L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+    		attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    		maxZoom: 18,
+    		id: 'mapbox.streets',
+    		accessToken: 'pk.eyJ1IjoiY2hyaXN0aW5lcSIsImEiOiJjam55dHY0cXoxZmowM3Byd3J5dzU3em10In0.pzaQ1RWVuOsaRn9Dv6bQZQ'
+			}).addTo(map1);
+
+			var popupLocation1 = new L.LatLng(40.033877, -75.074480);
+			var popupContent1 = '<strong>Devereaux Av & Roosevelt Blvd</strong><br>August 2015<br>Death(s): 1';
+			popup1 = new L.Popup();
+			popup1.setLatLng(popupLocation1);
+			popup1.setContent(popupContent1);
+			var m1 = L.marker([40.033877, -75.074480]).addTo(map1);
+			m1.bindPopup(popup1);
+			m1.openPopup();
+
+			var popupLocation2 = new L.LatLng(40.029232, -75.102085);
+			var popupContent2 = '<strong>Adams Av & Roosevelt Blvd</strong><br>August 2015<br>Death(s): 2';
+			popup2 = new L.Popup();
+			popup2.setLatLng(popupLocation2);
+			popup2.setContent(popupContent2);
+			var m2 = L.marker([40.029232, -75.102085]).addTo(map1);
+			m2.bindPopup(popup2);
+			m2.openPopup();
+
+			var popupLocation3 = new L.LatLng(40.071153, -75.037825);
+			var popupContent3 = '<strong>Woodward St & Roosevelt Blvd</strong><br>November 2015<br>Death(s): 1';
+			popup3 = new L.Popup();
+			popup3.setLatLng(popupLocation3);
+			popup3.setContent(popupContent3);
+			var m3 = L.marker([40.071153, -75.037825]).addTo(map1);
+			m3.bindPopup(popup3);
+			m3.openPopup();
+
+			var popupLocation4 = new L.LatLng(40.036907, -75.064248);
+			var popupContent4 = '<strong>Harbison Av & Roosevelt Blvd</strong><br>December 2015<br>Death(s): 1';
+			popup4 = new L.Popup();
+			popup4.setLatLng(popupLocation4);
+			popup4.setContent(popupContent4);
+			var m4 = L.marker([40.036907, -75.064248]).addTo(map1);
+			m4.bindPopup(popup4);
+			m4.openPopup();
+
+			var popupLocation5 = new L.LatLng(40.026939, -75.117073);
+			var popupContent5 = '<strong>C St & Roosevelt Blvd</strong><br>May 2016<br>Death(s): 1';
+			popup5 = new L.Popup();
+			popup5.setLatLng(popupLocation5);
+			popup5.setContent(popupContent5);
+			var m5 = L.marker([40.026939, -75.117073]).addTo(map1);
+			m5.bindPopup(popup5);
+			m5.openPopup();
+
+			var popupLocation6 = new L.LatLng(40.113862, -74.987807);
+			var popupContent6 = '<strong>Southampton Rd & Roosevelt Blvd</strong><br>June 2016<br>Death(s): 1';
+			popup6 = new L.Popup();
+			popup6.setLatLng(popupLocation6);
+			popup6.setContent(popupContent6);
+			var m6 = L.marker([40.113862, -74.987807]).addTo(map1);
+			m6.bindPopup(popup6);
+			m6.openPopup();
+
+			var popupLocation7 = new L.LatLng(40.033297, -75.079774);
+			var popupContent7 = '<strong>Large St & Roosevelt Blvd</strong><br>January 2017<br>Death(s): 2';
+			popup7 = new L.Popup();
+			popup7.setLatLng(popupLocation7);
+			popup7.setContent(popupContent7);
+			var m7 = L.marker([40.033297, -75.079774]).addTo(map1);
+			m7.bindPopup(popup7);
+			m7.openPopup();
+			m7.closePopup();
+		</script>
+	</div>
+	<div id="caption"><caption><em>The overall number of fatalities on Roosevelt Blvd. from 2015 to 2017 is 21. Here are the ones with the reported intersections.</em></caption><br></div>
+	<div id="article"><p>
+		Roosevelt Blvd.’s future results will determine whether or not speed-detection cameras are effective enough to apply to other accident-prone areas in the city. From 2015 to 2017, PennDOT's open crash data shows that there has been 3,676 reported accidents in the Philadelphia area. Of those accidents, 1,140 occurred on Roosevelt Blvd.<br><br>
+		Due to its 12-lane structure and speeds reaching up to 70 mph, Roosevelt Blvd. has become a hotspot for major injuries and fatalities. The major road runs from the Schuylkill Expressway in Fairmount Park through North Philadelphia to the end of the city line. In 2004, red light cameras were installed in an attempt to reduce the number of accidents. From the last two years, not considering 2018, there have been 43 major injuries and 21 fatalities from car-related accidents on the Boulevard, as it’s colloquially called. These incidents involved pedestrians and bicyclists as well. 
+	</p></div>
+	<div class="flourish-embed" data-src="visualisation/147512"></div><script src="https://public.flourish.studio/resources/embed.js"></script><br><br>
+	<div id="article"><p>
+		Aside from Roosevelt Blvd., City Ave. has the second-most number of motor vehicle accidents. In 2017, there were 411 reported accidents in Philadelphia County alone, and about 25% of those accidents involved roads intersecting with City Ave. Intersections at Roosevelt Blvd. made up the remaining 75% of accidents, approximately.<br><br>
+		Overall, the majority of car accidents occurred during morning and evening rush hours, which are times when traffic is heaviest. This is due to the typical nine-to-five work schedule that many Philadelphia and other surrounding area residents adhere to. Rush hours in Philadelphia are from 7:00am to 9:30am and 4:30pm to 6:00pm. Accidents peaked at the times between 8:00am and 9:00am as well as 4:00pm and 5:00pm. It seems that a higher amount of traffic correlates to a higher risk of getting into a car accident. This correlation is in relation to general factors without considering unideal weather conditions.
+	</p></div>
+	<div class="flourish-embed" data-src="visualisation/147480"></div><script src="https://public.flourish.studio/resources/embed.js"></script><br><br>
+	<div id="caption"><p><strong>Social Media Graphic</strong></p><br><br>
+	<img src="data_story_2_quach_social.jpg"/></div>
+</div>
+</body>
